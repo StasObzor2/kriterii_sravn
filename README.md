@@ -1,1 +1,0 @@
-# kriterii_sravn

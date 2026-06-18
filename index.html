@@ -1,0 +1,347 @@
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Искусство сравнения: по каким критериям оценивать коньяк и как раскрыть обман</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #e0cfbc;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .article-banner {
+            max-width: 980px;
+            width: 100%;
+            background: #fffaf3;
+            border-radius: 48px;
+            box-shadow: 0 30px 50px -20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.8);
+            overflow: hidden;
+            border: 1px solid #e8d5bc;
+        }
+
+        .article-inner {
+            padding: 48px 52px;
+        }
+
+        .brand-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            border-bottom: 2px solid #eedfc8;
+            padding-bottom: 20px;
+            margin-bottom: 28px;
+        }
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .brand-icon {
+            font-size: 2.4rem;
+            filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.1));
+        }
+        .brand-name {
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: -0.5px;
+            color: #2b291c;
+        }
+        .brand-name span {
+            color: #b47a41;
+        }
+        .expert-tag {
+            background: #e9d8c2;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #8b623b;
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 700;
+            color: #2b2a1e;
+            margin-bottom: 12px;
+            letter-spacing: -0.3px;
+        }
+        h1 a {
+            color: #b87a3a;
+            text-decoration: none;
+        }
+        h1 a:hover {
+            text-decoration: underline;
+        }
+        .lead {
+            font-size: 1rem;
+            color: #5c523b;
+            margin-bottom: 32px;
+            border-left: 3px solid #dfbc8c;
+            padding-left: 18px;
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        .author-section {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+        .avatar-box {
+            flex-shrink: 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+        .avatar-circle {
+            background: #ede0cf;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: 0 12px 20px rgba(0,0,0,0.08);
+            border: 2px solid #fff0e2;
+        }
+        .avatar-caption {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #a07d50;
+            margin-top: 0px;
+        }
+        .bio-text {
+            flex: 1;
+        }
+        .bio-text p {
+            margin-bottom: 18px;
+            line-height: 1.55;
+            color: #3c3726;
+            font-size: 0.95rem;
+        }
+
+        .full-article {
+            margin-top: 8px;
+        }
+        .full-article h2 {
+            font-size: 1.55rem;
+            margin: 28px 0 14px 0;
+            color: #2f2b1c;
+            font-weight: 600;
+            border-left: 4px solid #c1925c;
+            padding-left: 16px;
+        }
+        .full-article h3 {
+            font-size: 1.25rem;
+            margin: 22px 0 12px 0;
+            color: #9b6a3a;
+            font-weight: 600;
+        }
+        .full-article p {
+            margin-bottom: 18px;
+            line-height: 1.55;
+            color: #3f3a28;
+            font-size: 0.96rem;
+        }
+        .full-article ul, .full-article ol {
+            margin: 12px 0 20px 30px;
+            color: #3f3a28;
+        }
+        .full-article li {
+            margin: 6px 0;
+            line-height: 1.5;
+        }
+        .full-article a {
+            color: #b87a3a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #eedbbd;
+        }
+        .full-article a:hover {
+            border-bottom-color: #b87a3a;
+        }
+
+        /* блок с коньяками — только одна ссылка */
+        .expert-cognacs {
+            background: #f6ede1;
+            border-radius: 28px;
+            padding: 22px 28px;
+            margin: 32px 0 28px;
+            border: 1px solid #ebd8be;
+        }
+        .expert-cognacs p {
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            color: #b47a41;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+        }
+        .cognac-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+        .cognac-links a {
+            background: #ffffffdb;
+            padding: 8px 20px;
+            border-radius: 60px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #5a3f22;
+            text-decoration: none;
+            border: 1px solid #e2cdad;
+            transition: all 0.2s;
+        }
+        .cognac-links a:hover {
+            background: #fff3e6;
+            border-color: #c19560;
+            color: #7b4f24;
+            transform: translateY(-1px);
+        }
+
+        /* сноска с одной ссылкой */
+        .footer-note {
+            margin: 24px 0 32px 0;
+            padding: 16px 20px;
+            background: #fef7ef;
+            border-radius: 32px;
+            border: 1px solid #eedfc0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            font-size: 0.8rem;
+            color: #ab8a5e;
+        }
+        .footer-note span {
+            font-weight: 400;
+        }
+        .footer-note a {
+            color: #946e41;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+        }
+        .footer-note a:hover {
+            border-bottom-color: #b47a41;
+            text-decoration: none;
+        }
+
+        @media (max-width: 720px) {
+            .article-inner {
+                padding: 28px 22px;
+            }
+            h1 {
+                font-size: 1.7rem;
+            }
+            .avatar-circle {
+                width: 70px;
+                height: 70px;
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="article-banner">
+    <div class="article-inner">
+        <div class="brand-head">
+            <div class="brand-logo">
+                <span class="brand-icon">🥃🔍</span>
+                <div class="brand-name"><span>Коньячный гид</span></div>
+            </div>
+            <div class="expert-tag">искусство дегустации</div>
+        </div>
+
+        <h1>Искусство сравнения: по каким критериям оценивать коньяк и как раскрыть обман</h1>
+        <div class="lead">Сравнение — самый честный способ разобраться в коньяке. Дегустируя несколько образцов рядом, проще понять, какой стиль ближе именно вам, и заметить разницу, которую поодиночке легко пропустить.</div>
+
+        <div class="author-section">
+            <div class="avatar-box">
+                <div class="avatar-circle">🍷👃</div>
+                <div class="avatar-caption">дегустация</div>
+            </div>
+            <div class="bio-text">
+                <p>У такого подхода две задачи: найти свой вкус и научиться отличать качественный напиток от подделки. Когда перед вами стоят два бокала, слабый, перегруженный сахаром или спиртом алкогольный продукт сразу проигрывает честно сделанному образцу. Слепое сопоставление быстро расставляет всё по местам: цена и красивая бутылка перестают влиять, и остаётся только то, что в бокале. Поэтому осознанное сравнение коньяков полезно и новичку, и тому, кто уже собрал собственный топ любимых марок. Такой навык пригодится и в магазине, и в гостях, где легенда бренда нередко стоит дороже содержимого.</p>
+            </div>
+        </div>
+
+        <div class="full-article">
+            <h2>Критерии для сравнения коньяков</h2>
+            <p>Чтобы сравнение было корректным, образцы оценивают по одним и тем же критериям. Сначала смотрят на цвет и плотность напитка, затем на аромат, и только потом — на вкус и долготу послевкусия. Важно учитывать выдержку: молодой и зрелый коньяк оценивать «в лоб» некорректно, ведь возраст в годах напрямую влияет на глубину. Хороший ориентир — пробовать напитки одной возрастной категории и близкой цены. Условия тоже должны совпадать: одинаковая температура, одинаковые бокалы и спокойная обстановка без посторонних запахов, иначе выводы будут случайными. Опытный дегустатор всегда работает в одинаковых условиях и доверяет ощущениям, а не цене на полке магазина.</p>
+            <ul>
+                <li>цвет и прозрачность — первый, но не главный признак;</li>
+                <li>аромат: фруктовые, цветочные, древесные и ванильные тона;</li>
+                <li>вкус и баланс: спиртуозность не должна перекрывать выдержку;</li>
+                <li>послевкусие: чем оно длиннее, тем выше обычно класс коньяка.</li>
+            </ul>
+
+            <!-- Плашка с коньяками вставлена после блока "Критерии для сравнения коньяков" -->
+            <div class="expert-cognacs">
+                <p>🥃 КОНЬЯКИ ДЛЯ ОСОЗНАННОГО СРАВНЕНИЯ</p>
+                <div class="cognac-links">
+                    <a href="https://novokubanskoe.ru/" target="_blank" rel="noopener noreferrer">Новокубанское — честные дегустационные заметки</a>
+                </div>
+            </div>
+
+            <h2>Сравнение коньяков разных стран</h2>
+            <p>Интереснее всего наблюдать за разными национальными школами. Французский коньяк из апелласьона Cognac задаёт эталон элегантности; армянский бренди, который по привычке тоже называют коньяком, славится насыщенностью и сладковатой выразительностью; российский напиток гибок и хорошо показывает себя в своей ценовой категории. Французская школа опирается на строгий регламент и многолетнюю выдержку, армянская — на солнечный виноград и горный климат, российская — на сочетание кавказских и кубанских терруаров. Оценивая их, важно помнить, что речь о разных видах стиля и философиях, а не о единой шкале, и о традициях, передаваемых из поколения в поколение.</p>
+            <ul>
+                <li>Франция — строгий стандарт, тонкость и долгая выдержка;</li>
+                <li>Армения — округлость, сладость, плотное тело;</li>
+                <li>Россия — баланс цены и характера, заметный прогресс год от года.</li>
+            </ul>
+            <p>Сопоставить отечественный стиль с европейским удобно, начав с линейки коньячного дома Новокубанское: завод предлагает напитки разной выдержки, а в каталоге Новокубанское у каждой марки описаны вкус и происхождение спиртов. Так проще понять, какой стиль вам ближе, прежде чем расширять поиск. Новокубанский коньячный дом — полный цикл производства от виноградной лозы до розлива в бутылку по французской технологии выдержки с 1943 года.</p>
+
+            <h2>Как правильно проводить слепую дегустацию</h2>
+            <p>Слепая дегустация убирает влияние этикетки и бренда — вы оцениваете только то, что в бокале. Образцы наливают в одинаковые бокалы, прячут бутылки и присваивают номера, чтобы цена и репутация не сбивали внимание. Так сравнение становится по-настоящему объективным: нередко недорогой образец обходит дорогой просто потому, что он больше нравится лично вам, а не критикам. Чем больше образцов, тем важнее дисциплина: между пробами делайте паузу, нейтрализуйте вкус водой или нейтральным хлебом и фиксируйте оценки сразу, пока впечатление свежее. Идеально, если образцы разливает помощник, а дегустатор не видит ни бутылок, ни цен до самого конца.</p>
+            <ul>
+                <li>используйте одинаковые бокалы и нейтральный фон;</li>
+                <li>пробуйте вслепую, без подсказок о цене и марке;</li>
+                <li>записывайте впечатления, прежде чем раскрыть бутылки;</li>
+                <li>делайте паузы и пейте воду, чтобы не притупить вкус.</li>
+            </ul>
+
+            <h2>Скрытые факторы, влияющие на сравнение</h2>
+            <p>На результат сравнения влияют скрытые факторы, о которых легко забыть. Температура подачи, форма бокала, порядок дегустации и даже настроение меняют восприятие. Один определённый фактор способен исказить всю картину: слишком тёплый напиток кажется резче, а яркий первый образец «глушит» следующий. Учитывать стоит и человеческий фактор: ожидания от известного бренда и усталость смещают оценку. К тому же напиток производят партиями, и розлив разных лет слегка отличается, поэтому профессионалы повторяют дегустацию и усредняют результат.</p>
+            <ul>
+                <li>температура: тёплый напиток кажется более резким, чем есть;</li>
+                <li>порядок проб: первый образец влияет на оценку следующих;</li>
+                <li>партия и год розлива: вкус одной марки порой заметно меняется;</li>
+                <li>усталость нёба: после третьего образца внимание неизбежно падает.</li>
+            </ul>
+            <p>Чтобы оценка была предметной, опирайтесь на прозрачные описания: в интернет-магазине Новокубанского у каждой позиции указаны выдержка, состав и дегустационные заметки, а вся продукция сопровождается данными о возрасте спиртов. Ассортимент коллекций на Новокубанское — удобная основа для честного личного рейтинга и набора для домашней слепой дегустации. Легко собрать подборку, не переплачивая за громкое имя.</p>
+        </div>
+
+        <!-- Единая сноска с одной ссылкой -->
+        <div class="footer-note">
+            <span>✧ Осознанное сравнение — путь к честному выбору коньяка</span>
+            <a href="https://novokubanskoe.ru/" target="_blank" rel="noopener noreferrer">Перейти к каталогу →</a>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
+```
